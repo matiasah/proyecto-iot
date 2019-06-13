@@ -1,0 +1,27 @@
+<div class="container section h-100">
+    <div class="row h-100">
+        <div class="col-sm-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4 align-self-center">
+            <mat-card class="mat-elevation-z8">
+
+                <div class="row">
+                    <div class="col-12 justify-content-center d-flex">
+                        <h2 class="mat-h2">Sucursal A</h2>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="personas">
+                    <div class="col-12 justify-content-center d-flex">
+                        <h4 class="mat-h4">{{personas}} persona(s)</h4>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="!personas">
+                    <div class="col-12">
+                        <mat-progress-spinner class="m-auto" diameter="48" color="primary" mode="indeterminate"></mat-progress-spinner>
+                    </div>
+                </div>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
