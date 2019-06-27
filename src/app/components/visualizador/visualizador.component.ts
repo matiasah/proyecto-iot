@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from 'src/app/services/persona.service';
+import { timer } from 'rxjs';
 
 @Component({
     selector: 'app-visualizador',
@@ -18,13 +19,17 @@ export class VisualizadorComponent implements OnInit {
     }
 
     public ngOnInit() {
-        // Obtener cantidad de personas
-        this.personaService.getPersonas().then(
-            Response => {
-                console.log(Response);
-                this.personas = Response;
+        // Enviar petición cada 2 segundos
+        timer(0, 2000).subscribe(
+            () => {
+                // Obtener cantidad de personas
+                this.personaService.getPersonas().then(
+                    Response => {
+                        this.personas = Response;
+                    }
+                );
             }
-        )
+        );
     }
 
 }
